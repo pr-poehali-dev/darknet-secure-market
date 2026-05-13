@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import AdminPanel from '@/components/AdminPanel';
+import PaymentEcosystem from '@/components/PaymentEcosystem';
 
 type Section = 'home' | 'connect' | 'terms' | 'contacts' | 'admin' | 'api';
 
@@ -122,86 +123,117 @@ export default function Index() {
               }} />
 
               <div className="relative max-w-7xl mx-auto px-6 py-24">
-                <div className="max-w-4xl">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 text-xs font-medium tracking-widest uppercase" style={{
-                    background: 'rgba(201,168,76,0.08)',
-                    border: '1px solid rgba(201,168,76,0.2)',
-                    color: 'var(--gold)'
-                  }}>
-                    <div className="status-dot-gold" />
-                    Премиум платёжная платформа
+                <div className="grid md:grid-cols-12 gap-8 items-end mb-12">
+                  <div className="md:col-span-2 hidden md:block">
+                    <div className="font-serif italic text-sm" style={{ color: 'rgba(232,201,106,0.5)' }}>est. 2019</div>
+                    <div className="w-12 h-px my-3" style={{ background: 'rgba(201,168,76,0.3)' }} />
+                    <div className="text-xs uppercase tracking-[0.3em]" style={{ color: 'rgba(201,168,76,0.6)' }}>Глава 01</div>
                   </div>
 
-                  <h1 className="font-serif mb-6 leading-none" style={{ fontSize: 'clamp(3rem, 7vw, 6rem)', color: '#f0e8d0' }}>
-                    Безопасные платежи<br />
-                    <span className="shimmer-text">нового уровня</span>
-                  </h1>
+                  <div className="md:col-span-10">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 text-xs font-medium tracking-[0.25em] uppercase" style={{
+                      background: 'rgba(201,168,76,0.08)',
+                      border: '1px solid rgba(201,168,76,0.2)',
+                      color: 'var(--gold)'
+                    }}>
+                      <div className="status-dot-gold" />
+                      Платёжная архитектура премиум-класса
+                    </div>
 
-                  <p className="text-gray-400 mb-10 max-w-2xl leading-relaxed" style={{ fontSize: '1.125rem' }}>
-                    AuraPay — платформа для приёма онлайн-платежей с трёхуровневой защитой,
-                    прозрачной аналитикой и поддержкой 15+ платёжных систем. Подключите ваш сайт за 24 часа.
-                  </p>
+                    <h1 className="font-serif mb-8 leading-[0.95] tracking-tight" style={{ fontSize: 'clamp(2.75rem, 7vw, 6.5rem)', color: '#f0e8d0' }}>
+                      Деньги, что текут<br />
+                      <span className="shimmer-text">бесшумно</span>{' '}
+                      <span className="font-serif italic" style={{ color: 'rgba(232,201,106,0.85)', fontWeight: 300 }}>и достойно.</span>
+                    </h1>
 
-                  <div className="flex flex-wrap gap-4">
-                    <button
-                      onClick={() => setActiveSection('connect')}
-                      className="group px-8 py-4 font-medium text-sm tracking-wide transition-all duration-300"
-                      style={{
-                        background: 'linear-gradient(135deg, #c9a84c, #e8c96a)',
-                        color: '#0a0a0f',
-                        borderRadius: '4px',
-                      }}
-                    >
-                      Подключить сайт
-                      <Icon name="ArrowRight" size={16} className="inline ml-2" />
-                    </button>
-                    <button
-                      onClick={() => setActiveSection('api')}
-                      className="px-8 py-4 font-medium text-sm tracking-wide transition-all duration-300"
-                      style={{
-                        border: '1px solid rgba(201,168,76,0.3)',
-                        color: 'var(--gold)',
-                        borderRadius: '4px',
-                        background: 'transparent',
-                      }}
-                    >
-                      Документация API
-                    </button>
+                    <div className="max-w-2xl">
+                      <p className="text-gray-300 mb-3 leading-relaxed" style={{ fontSize: '1.25rem', fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', color: 'rgba(240,232,208,0.85)' }}>
+                        «Платёж — это не транзакция. Это обещание, данное в долю секунды, и сдержанное безоговорочно».
+                      </p>
+                      <p className="text-gray-500 leading-relaxed mb-10" style={{ fontSize: '1.05rem' }}>
+                        AuraPay — платформа, в которой инженерная точность встречает эстетику швейцарских часов.
+                        Двенадцать платёжных систем, три рубежа защиты, одно решение для бизнеса, который не терпит компромиссов.
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-4">
+                      <button
+                        onClick={() => setActiveSection('connect')}
+                        className="group px-8 py-4 font-medium text-sm tracking-[0.15em] uppercase transition-all duration-300 hover:shadow-2xl"
+                        style={{
+                          background: 'linear-gradient(135deg, #c9a84c, #e8c96a)',
+                          color: '#0a0a0f',
+                          borderRadius: '2px',
+                        }}
+                      >
+                        Подключить за 24 часа
+                        <Icon name="ArrowRight" size={14} className="inline ml-2 group-hover:translate-x-1 transition-transform" />
+                      </button>
+                      <button
+                        onClick={() => setActiveSection('api')}
+                        className="px-8 py-4 font-medium text-sm tracking-[0.15em] uppercase transition-all duration-300"
+                        style={{
+                          border: '1px solid rgba(201,168,76,0.3)',
+                          color: 'var(--gold)',
+                          borderRadius: '2px',
+                          background: 'transparent',
+                        }}
+                      >
+                        Изучить документацию
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-24" style={{ background: 'rgba(201,168,76,0.1)' }}>
                   {[
-                    { value: '₽2.4B+', label: 'Оборот платформы' },
-                    { value: '1,200+', label: 'Подключённых сайтов' },
-                    { value: '99.98%', label: 'Uptime системы' },
-                    { value: '< 1.5s', label: 'Среднее время оплаты' },
+                    { value: '₽2.4B', label: 'Оборот за год', note: 'и продолжает расти' },
+                    { value: '1 247', label: 'Партнёрских сайтов', note: 'от стартапов до холдингов' },
+                    { value: '99.98%', label: 'Uptime системы', note: 'выше отраслевого среднего' },
+                    { value: '1.4с', label: 'Среднее время оплаты', note: 'быстрее одного вдоха' },
                   ].map((stat, i) => (
-                    <div key={i} className="glass-card rounded-lg p-5">
-                      <div className="font-serif text-2xl font-semibold mb-1" style={{ color: 'var(--gold-light)' }}>{stat.value}</div>
-                      <div className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
+                    <div key={i} className="p-6" style={{ background: 'var(--obsidian)' }}>
+                      <div className="font-serif text-3xl md:text-4xl font-light mb-1" style={{ color: 'var(--gold-light)' }}>{stat.value}</div>
+                      <div className="text-xs uppercase tracking-widest text-gray-400 mb-1">{stat.label}</div>
+                      <div className="text-xs italic font-serif" style={{ color: 'rgba(232,201,106,0.4)' }}>{stat.note}</div>
                     </div>
                   ))}
                 </div>
               </div>
             </section>
 
+            <PaymentEcosystem />
+
             {/* Features */}
             <section className="py-24 max-w-7xl mx-auto px-6">
               <div className="section-divider mb-16" />
-              <div className="text-center mb-16">
-                <div className="text-xs uppercase tracking-widest mb-4" style={{ color: 'var(--gold)' }}>Возможности</div>
-                <h2 className="font-serif text-4xl md:text-5xl" style={{ color: '#f0e8d0' }}>Всё для вашего бизнеса</h2>
+              <div className="grid md:grid-cols-12 gap-8 mb-16">
+                <div className="md:col-span-4">
+                  <div className="text-xs uppercase tracking-[0.3em] mb-4 flex items-center gap-3" style={{ color: 'var(--gold)' }}>
+                    <span className="w-8 h-px" style={{ background: 'var(--gold)' }} />
+                    Глава 03
+                  </div>
+                  <div className="font-serif italic text-sm" style={{ color: 'rgba(232,201,106,0.6)' }}>Возможности</div>
+                </div>
+                <div className="md:col-span-8">
+                  <h2 className="font-serif leading-[1.05] mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#f0e8d0' }}>
+                    Шесть инструментов,<br />
+                    <span className="font-serif italic" style={{ color: 'rgba(232,201,106,0.85)' }}>отточенных до зеркального блеска.</span>
+                  </h2>
+                  <p className="text-gray-400 leading-relaxed max-w-2xl" style={{ fontSize: '1.05rem' }}>
+                    Мы не добавляем функций ради функций. Каждый инструмент здесь — ответ на конкретный вопрос предпринимателя, заданный в три часа ночи.
+                  </p>
+                </div>
               </div>
 
               <div className="grid md:grid-cols-3 gap-6">
                 {[
-                  { icon: 'Shield', title: '3 уровня защиты', desc: 'SSL-шифрование, двухфакторная аутентификация и биометрическая верификация каждой транзакции' },
-                  { icon: 'Zap', title: 'Мгновенные выплаты', desc: 'Вывод средств на расчётный счёт в течение 2-4 часов в любой рабочий день' },
-                  { icon: 'BarChart3', title: 'Полная аналитика', desc: 'Дашборд с метриками в реальном времени: конверсия, объём, комиссии по каждой платёжной системе' },
-                  { icon: 'Globe', title: '15+ платёжных систем', desc: 'ЮKassa, CloudPayments, Tinkoff, СБП, QIWI, WebMoney, крипта и международные карты' },
-                  { icon: 'Code2', title: 'Простое API', desc: 'REST API с подробной документацией, SDK для PHP, Python, Node.js и готовые плагины для CMS' },
-                  { icon: 'Headphones', title: 'Поддержка 24/7', desc: 'Личный менеджер для партнёров с оборотом от 1 млн ₽/мес. Ответ в чате — 2 минуты' },
+                  { icon: 'Shield', title: 'Тройная броня', desc: 'SSL-шифрование, двухфакторная аутентификация и биометрическая верификация. Платёж, что прошёл AuraPay, не оспаривается.' },
+                  { icon: 'Zap', title: 'Молниеносные выплаты', desc: 'Деньги ложатся на расчётный счёт через 2–4 часа. Не «до конца дня», не «до завтра» — через несколько часов.' },
+                  { icon: 'BarChart3', title: 'Аналитика без купюр', desc: 'Дашборд показывает всё: конверсию, средний чек, отказы, маржу по каждому каналу. Графики обновляются в реальном времени.' },
+                  { icon: 'Globe', title: '12 платёжных артерий', desc: 'СБП, Tinkoff, ЮKassa, CloudPayments, Visa, Mastercard, Mir, Apple Pay, USDT, Bitcoin — выбор остаётся за вашим клиентом.' },
+                  { icon: 'Code2', title: 'API, что читается как роман', desc: 'REST с честной документацией. SDK для PHP, Python, Node.js. Плагины для Bitrix, Tilda, Shopify — интеграция за один вечер.' },
+                  { icon: 'Headphones', title: 'Поддержка, что слышит', desc: 'Личный менеджер для партнёров с оборотом от 1 млн ₽/мес. Ответ в чате — 2 минуты. В любую среду, в любой час.' },
                 ].map((f, i) => (
                   <div key={i} className="glass-card glass-card-hover rounded-lg p-6">
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: 'rgba(201,168,76,0.1)' }}>
@@ -214,49 +246,28 @@ export default function Index() {
               </div>
             </section>
 
-            {/* Payment Systems */}
-            <section className="py-16 max-w-7xl mx-auto px-6">
-              <div className="section-divider mb-16" />
-              <div className="text-center mb-12">
-                <div className="text-xs uppercase tracking-widest mb-4" style={{ color: 'var(--gold)' }}>Интеграции</div>
-                <h2 className="font-serif text-3xl md:text-4xl" style={{ color: '#f0e8d0' }}>Поддерживаемые платёжные системы</h2>
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {[
-                  { name: 'ЮKassa', commission: '2.8%', icon: '💳' },
-                  { name: 'CloudPayments', commission: '2.9%', icon: '☁️' },
-                  { name: 'Tinkoff Pay', commission: '1.5%', icon: '🏦' },
-                  { name: 'СБП', commission: '0.7%', icon: '⚡' },
-                  { name: 'QIWI', commission: '3.2%', icon: '🥝' },
-                  { name: 'WebMoney', commission: '2.5%', icon: '🌐' },
-                  { name: 'Крипта', commission: '1.0%', icon: '₿' },
-                  { name: 'Visa/MC', commission: '2.2%', icon: '💠' },
-                ].map((ps, i) => (
-                  <div key={i} className="glass-card glass-card-hover rounded-lg p-4 flex items-center gap-3">
-                    <span className="text-2xl">{ps.icon}</span>
-                    <div>
-                      <div className="font-medium text-sm" style={{ color: '#f0e8d0' }}>{ps.name}</div>
-                      <div className="text-xs" style={{ color: 'var(--gold)' }}>{ps.commission} комиссия</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
             {/* Security */}
             <section className="py-24 max-w-7xl mx-auto px-6">
               <div className="section-divider mb-16" />
               <div className="grid md:grid-cols-2 gap-16 items-center">
                 <div>
-                  <div className="text-xs uppercase tracking-widest mb-4" style={{ color: 'var(--gold)' }}>Защита</div>
-                  <h2 className="font-serif text-4xl mb-6" style={{ color: '#f0e8d0' }}>Три уровня<br />безопасности</h2>
-                  <p className="text-gray-400 mb-8 leading-relaxed">Каждая транзакция проходит через три независимых уровня верификации, соответствуя стандарту PCI DSS Level 1.</p>
+                  <div className="text-xs uppercase tracking-[0.3em] mb-4 flex items-center gap-3" style={{ color: 'var(--gold)' }}>
+                    <span className="w-8 h-px" style={{ background: 'var(--gold)' }} />
+                    Глава 04
+                  </div>
+                  <h2 className="font-serif text-4xl md:text-5xl mb-6 leading-[1.05]" style={{ color: '#f0e8d0' }}>
+                    Три рубежа,<br />
+                    <span className="font-serif italic" style={{ color: 'rgba(232,201,106,0.85)' }}>что не пропустят чужого.</span>
+                  </h2>
+                  <p className="text-gray-400 mb-8 leading-relaxed">
+                    Безопасность здесь — не функция, а философия. Каждая транзакция проходит три независимых рубежа проверки прежде чем стать историей. PCI DSS Level 1, ISO 27001, аудит KPMG — лишь подтверждение того, во что мы верим изначально.
+                  </p>
 
                   <div className="space-y-4">
                     {[
-                      { level: '01', title: 'SSL/TLS + Шифрование AES-256', desc: 'Все данные передаются по зашифрованному каналу. Ключи ротируются каждые 24 часа.' },
-                      { level: '02', title: 'Двухфакторная аутентификация', desc: 'Каждый вывод средств подтверждается SMS + TOTP-кодом на привязанное устройство.' },
-                      { level: '03', title: 'Мониторинг аномалий 24/7', desc: 'ИИ-система анализирует 200+ параметров каждой транзакции и блокирует подозрительные операции.' },
+                      { level: '01', title: 'Криптографический щит', desc: 'TLS 1.3 и AES-256 — те же стандарты, что хранят государственные тайны. Ключи ротируются каждые 24 часа без вашего участия.' },
+                      { level: '02', title: 'Двухключевой замок', desc: 'Любой вывод средств — это две подписи: SMS и TOTP-код. Один ключ потерян? Второй останется при вас.' },
+                      { level: '03', title: 'Бессонный наблюдатель', desc: 'ИИ-страж читает 200+ параметров каждого платежа. Заметит то, что человек упустил бы — и остановит до того, как станет поздно.' },
                     ].map((s, i) => (
                       <div key={i} className="flex gap-4 p-4 rounded-lg" style={{ border: '1px solid rgba(201,168,76,0.1)', background: 'rgba(201,168,76,0.03)' }}>
                         <div className="font-serif text-2xl font-light shrink-0" style={{ color: 'rgba(201,168,76,0.4)' }}>{s.level}</div>
